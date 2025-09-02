@@ -35,7 +35,7 @@ function VersionDisplay() {
   return (
     <button
       onClick={() =>
-        window.open('https://github.com/MoonTechLab/LunaTV', '_blank')
+        window.open('https://github.com/SzeMeng76/LunaTV', '_blank')
       }
       className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 transition-colors cursor-pointer'
     >
@@ -177,6 +177,22 @@ function LoginPageClient() {
           >
             {loading ? '登录中...' : '登录'}
           </button>
+
+          {/* 注册链接 - 仅在非 localStorage 模式下显示 */}
+          {shouldAskUsername && (
+            <div className='text-center'>
+              <span className='text-gray-600 dark:text-gray-400 text-sm'>
+                还没有账户？
+              </span>
+              <button
+                type='button'
+                onClick={() => router.push('/register')}
+                className='ml-2 text-green-600 dark:text-green-400 text-sm font-medium hover:underline'
+              >
+                立即注册
+              </button>
+            </div>
+          )}
         </form>
       </div>
 
